@@ -1,3 +1,4 @@
+// register.js
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -12,12 +13,6 @@ const Register = () => {
   const handleRegister = async (event) => {
     event.preventDefault();
     try {
-      console.log("Registering user:", {
-        username,
-        password,
-        firstName,
-        lastName,
-      });
       const response = await axios.post("/api/users/register", {
         username,
         password,
@@ -25,13 +20,10 @@ const Register = () => {
         lastName,
       });
       console.log("Registration successful:", response.data);
-      // Redirect to profile page with new user ID
-      navigate(`/profile/${response.data._id}`);
+      navigate(`/login`);
     } catch (error) {
-      console.error(
-        "Error registering:",
-        error.response ? error.response.data : error.message
-      );
+      console.error("Error registering:", error.response?.data);
+      alert(error.response?.data.error || "Registration failed");
     }
   };
 

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeScreen from "./home-screen";
 import ProfileScreen from "./profile-screen";
-import UserProfileScreen from "./user-profile-screen"; // Import the new component
+import UserProfileScreen from "./user-profile-screen";
 import SearchScreen from "./search-screen";
 import SquareScreen from "./square-screen";
 import Navigation from "./navigation";

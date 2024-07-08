@@ -21,12 +21,32 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
   };
 
-  const updateUserContext = (updatedUser) => {
-    setUser(updatedUser);
+  const followUserInContext = (followUserId) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      followedUsers: [...prevUser.followedUsers, followUserId],
+    }));
+  };
+
+  const unfollowUserInContext = (unfollowUserId) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      followedUsers: prevUser.followedUsers.filter(
+        (id) => id !== unfollowUserId
+      ),
+    }));
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, updateUserContext }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        login,
+        logout,
+        followUserInContext,
+        unfollowUserInContext,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

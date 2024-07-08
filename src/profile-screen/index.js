@@ -2,11 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import SetUser from "./set-user";
 import FetchLocation from "../location";
-import { getUsers, updateUser as updateUserApi } from "../api";
+import {
+  getUsers,
+  updateUser as updateUserApi,
+  followUser,
+  unfollowUser,
+} from "../api";
 import { AuthContext } from "../auth-context";
 
 const ProfileScreen = () => {
-  const { user, updateUserContext } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { userId } = useParams();
   const [profileUser, setProfileUser] = useState({
     id: "",
@@ -37,10 +42,37 @@ const ProfileScreen = () => {
       .then((response) => {
         console.log("User updated:", response.data);
         setProfileUser(response.data);
-        updateUserContext(response.data); // Update the AuthContext with the new user data
       })
       .catch((error) => console.error("Error updating user:", error));
   };
+
+  const handleFollow = async () => {
+    try {
+      await followUser(user._id, profileUser._id);
+      setProfileUser((prevUser) => ({
+        ...prevUser,
+        followedUsers: [...prevUser.followedUsers, profileUser._id],
+      }));
+    } catch (error) {
+      console.error("Error following user:", error);
+    }
+  };
+
+  const handleUnfollow = async () => {
+    try {
+      await unfollowUser(user._id, profileUser._id);
+      setProfileUser((prevUser) => ({
+        ...prevUser,
+        followedUsers: prevUser.followedUsers.filter(
+          (id) => id !== profileUser._id
+        ),
+      }));
+    } catch (error) {
+      console.error("Error unfollowing user:", error);
+    }
+  };
+
+  const isFollowing = user?.followedUsers?.includes(profileUser._id);
 
   return (
     <div>
@@ -49,7 +81,11 @@ const ProfileScreen = () => {
       <h3>First Name: {profileUser.firstName}</h3>
       <h3>Last Name: {profileUser.lastName}</h3>
       <h3>Location: {profileUser.location}</h3>
-      <button>Follow</button>
+      {userId !== user._id && (
+        <button onClick={isFollowing ? handleUnfollow : handleFollow}>
+          {isFollowing ? "Unfollow" : "Follow"}
+        </button>
+      )}
       <SetUser user={profileUser} updateUser={handleUpdateUser} />
       <FetchLocation
         setLocation={(location) =>

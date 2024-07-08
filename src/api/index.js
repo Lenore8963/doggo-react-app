@@ -38,3 +38,21 @@ export const deleteTuit = (tuitId) => {
     throw error;
   });
 };
+
+export const followUser = (userId, followUserId) => {
+  return axios
+    .post("/api/users/follow", { userId, followUserId })
+    .catch((error) => {
+      console.error("Error in followUser API:", error.response?.data);
+      throw error;
+    });
+};
+
+export const unfollowUser = (userId, unfollowUserId) => {
+  return axios
+    .post("/api/users/unfollow", { userId, unfollowUserId })
+    .catch((error) => {
+      console.error("Error in unfollowUser API:", error.response?.data);
+      throw error;
+    });
+};
