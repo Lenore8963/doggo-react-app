@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import SetUser from "./set-user";
-import FetchLocation from "../location";
 import {
   getUsers,
   updateUser as updateUserApi,
@@ -19,7 +18,6 @@ const ProfileScreen = () => {
     password: "",
     firstName: "",
     lastName: "",
-    location: "Fetching location...",
   });
 
   useEffect(() => {
@@ -94,10 +92,6 @@ const ProfileScreen = () => {
             <span className="font-semibold">Last Name: </span>
             {profileUser.lastName}
           </div>
-          <div className="mb-4">
-            <span className="font-semibold">Location: </span>
-            {profileUser.location}
-          </div>
           {userId !== user._id && (
             <button
               className="cute-button mb-4"
@@ -106,11 +100,6 @@ const ProfileScreen = () => {
               {isFollowing ? "Unfollow" : "Follow"}
             </button>
           )}
-          <FetchLocation
-            setLocation={(location) =>
-              setProfileUser((prevUser) => ({ ...prevUser, location }))
-            }
-          />
         </div>
         <div className="w-full md:w-1/4 order-2 md:order-2 p-4 shadow-lg rounded-lg mt-4 md:mt-0">
           <SetUser user={profileUser} updateUser={handleUpdateUser} />

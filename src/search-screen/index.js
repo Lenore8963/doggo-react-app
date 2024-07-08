@@ -1,77 +1,64 @@
 import React, { useState } from "react";
-import FetchLocation from "../location"; // Import the FetchLocation component
-import { fetchYelpData } from "./fetchYelp"; // Import the Yelp fetch function
+import axios from "axios";
 
-const SearchScreen = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [location, setLocation] = useState("Fetching location...");
-  const [results, setResults] = useState([]);
+const popularQuestions = [
+  "What are the best dog training tips?",
+  "How often should I groom my dog?",
+  "What are some common dog health issues?",
+  "How do I make homemade dog food?",
+  "What are the best dog breeds for families?",
+];
 
-  const handleSearch = async (term) => {
-    const searchLocation =
-      location === "Fetching location..." ? "Vancouver, BC" : location; // Fallback location
-    const data = await fetchYelpData(searchLocation, term);
-    setResults(data);
-  };
+function SquareScreen() {
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
 
-  const handleButtonClick = (term) => {
-    setSearchTerm(term);
-    handleSearch(term);
-  };
-
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    handleSearch(searchTerm);
+  const askQuestion = async (question) => {
+    try {
+      const response = await axios.post("/api/ask", { question });
+      setAnswer(response.data.answer);
+    } catch (error) {
+      console.error("Error asking question:", error);
+      setAnswer("Something went wrong. Please try again later.");
+    }
   };
 
   return (
-    <div>
-      <h1>Search for Dog Services</h1>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={handleInputChange}
-        placeholder="Search for dog services..."
-      />
-      <button onClick={handleFormSubmit}>Search</button>
-      <div>
-        <button onClick={() => handleButtonClick("dog parks")}>
-          Dog Parks
+    <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row">
+      <div className="w-full md:w-3/4 order-1 md:order-1 p-4">
+        <h2 className="text-xl font-bold mb-4">Ask ChatGPT About Dogs</h2>
+        <textarea
+          className="border rounded p-2 mb-4 w-full"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          rows="4"
+          placeholder="Ask anything about dogs..."
+        />
+        <button
+          className="bg-blue-500 text-white py-2 px-4 rounded mb-4 w-full"
+          onClick={() => askQuestion(question)}
+        >
+          Ask
         </button>
-        <button onClick={() => handleButtonClick("dog grooming")}>
-          Dog Grooming
-        </button>
-        <button onClick={() => handleButtonClick("dog training")}>
-          Dog Training
-        </button>
-        <button onClick={() => handleButtonClick("dog boarding")}>
-          Dog Boarding
-        </button>
-      </div>
-      <h3>Current Location: {location}</h3>
-      <FetchLocation setLocation={setLocation} />
-      <div>
-        <h2>Results:</h2>
-        <ul>
-          {results.map((business) => (
-            <li key={business.id}>
-              <h3>{business.name}</h3>
-              <p>{business.location.address1}</p>
-              <p>{business.location.city}</p>
-              <p>{business.display_phone}</p>
-              <a href={business.url} target="_blank" rel="noopener noreferrer">
-                View on Yelp
-              </a>
-            </li>
-          ))}
-        </ul>
+        <h3 className="text-lg font-semibold mb-2">Popular Questions:</h3>
+        {popularQuestions.map((q, index) => (
+          <button
+            key={index}
+            className="bg-gray-200 text-black py-2 px-4 rounded mb-2 w-full text-left"
+            onClick={() => askQuestion(q)}
+          >
+            {q}
+          </button>
+        ))}
+        {answer && (
+          <div className="mt-4 p-4 border rounded bg-white">
+            <h2 className="text-xl font-semibold mb-2">Answer:</h2>
+            <p>{answer}</p>
+          </div>
+        )}
       </div>
     </div>
   );
-};
+}
 
-export default SearchScreen;
+export default SquareScreen;

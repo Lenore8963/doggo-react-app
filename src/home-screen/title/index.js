@@ -6,7 +6,7 @@ const Title = () => {
       </div>
       <div className="center-sub-heading">
         <p>
-          <b>For dog owners, merchants, and specialists to connect</b>
+          <b>For dog lovers to connect</b>
         </p>
       </div>
     </div>
