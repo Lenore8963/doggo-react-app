@@ -1,7 +1,9 @@
+// App.js
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeScreen from "./home-screen";
 import ProfileScreen from "./profile-screen";
+import UserProfileScreen from "./user-profile-screen"; // Import the new component
 import SearchScreen from "./search-screen";
 import SquareScreen from "./square-screen";
 import Navigation from "./navigation";
@@ -36,8 +38,8 @@ function App() {
       const user = JSON.parse(localStorage.getItem("user"));
       const requestBody = { tuit: tuitText, userId: user._id };
       console.log("Adding tuit:", requestBody);
-      const response = await addTuitApi(requestBody.tuit, requestBody.userId);
-      setTuits([response.data, ...tuits]); // Insert the new tuit at the beginning
+      const response = await addTuitApi(tuitText, user._id);
+      setTuits([...tuits, response.data]);
     } catch (error) {
       console.error("Error adding tuit:", error);
       console.log(error.response?.data); // Log the response data
@@ -77,6 +79,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="/user/:userId" element={<UserProfileScreen />} />
             <Route path="/search" element={<SearchScreen />} />
             <Route path="/square" element={<SquareScreen />} />
             <Route path="/login" element={<Login />} />
