@@ -19,7 +19,11 @@ const Login = () => {
       login(response.data); // Set the user data in context
       navigate(`/profile/${response.data._id}`); // Redirect to profile page with user ID
     } catch (error) {
-      console.error("Login failed:", error);
+      if (error.response && error.response.status === 401) {
+        alert("Login failed: Invalid username or password");
+      } else {
+        alert("Login failed: An unexpected error occurred");
+      }
     }
   };
 
