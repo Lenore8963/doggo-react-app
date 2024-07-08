@@ -1,0 +1,89 @@
+/* Neon glow effect for navigation items */
+.nav-item {
+  font-family: "Quicksand", sans-serif; /* A readable, modern font */
+  font-size: 1.5em; /* Adjust the size as needed */
+  color: #ffffff; /* White text color */
+  text-shadow: 1px -1px 2px #00ffff,
+    /* Top-left cyan shadow */ -1px 1px 2px #00ffff,
+    /* Bottom-right cyan shadow */ 1px 1px 2px #ff1493,
+    /* Bottom-left deep pink shadow */ -1px -1px 2px #ff1493; /* Top-right deep pink shadow */
+  transition: color 0.3s, text-shadow 0.3s;
+  animation: neonGlow 1.5s infinite alternate;
+  margin: 10px 0; /* Space between the items */
+}
+
+.nav-item:hover {
+  color: #ff69b4; /* Change color on hover */
+  text-shadow: 2px -2px 4px #00ffff,
+    /* Increased shadow on hover */ -2px 2px 4px #00ffff, 2px 2px 4px #ff1493,
+    -2px -2px 4px #ff1493;
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 1px -1px 2px #00ffff, -1px 1px 2px #00ffff, 1px 1px 2px #ff1493,
+      -1px -1px 2px #ff1493;
+  }
+  to {
+    text-shadow: 2px -2px 4px #00ffff, -2px 2px 4px #00ffff, 2px 2px 4px #ff1493,
+      -2px -2px 4px #ff1493;
+  }
+}
+
+/* Styling for the logo */
+.logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.cute-button {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cute-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cute-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Neon text effect */
+.neon-text {
+  color: #ffffff;
+  text-shadow: 0 0 5px #7fffd4, 0 0 10px #7fffd4, 0 0 15px #7fffd4,
+    0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff,
+    0 0 75px #00ffff;
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 5px #7fffd4, 0 0 10px #7fffd4, 0 0 15px #7fffd4,
+      0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff,
+      0 0 75px #00ffff;
+  }
+  to {
+    text-shadow: 0 0 10px #7fffd4, 0 0 20px #7fffd4, 0 0 30px #7fffd4,
+      0 0 40px #00ffff, 0 0 50px #00ffff, 0 0 60px #00ffff, 0 0 70px #00ffff,
+      0 0 100px #00ffff;
+  }
+}

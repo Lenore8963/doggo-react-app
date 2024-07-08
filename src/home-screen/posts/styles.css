@@ -1,0 +1,44 @@
+.cute-button {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cute-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cute-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Neon text effect for "Make your first post!" */
+.neon-text {
+  color: #ffffff;
+  text-shadow: 0 0 5px #7fffd4, 0 0 10px #7fffd4, 0 0 15px #7fffd4,
+    0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff,
+    0 0 75px #00ffff;
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 5px #7fffd4, 0 0 10px #7fffd4, 0 0 15px #7fffd4,
+      0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff,
+      0 0 75px #00ffff;
+  }
+  to {
+    text-shadow: 0 0 10px #7fffd4, 0 0 20px #7fffd4, 0 0 30px #7fffd4,
+      0 0 40px #00ffff, 0 0 50px #00ffff, 0 0 60px #00ffff, 0 0 70px #00ffff,
+      0 0 100px #00ffff;
+  }
+}

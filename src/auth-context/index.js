@@ -1,3 +1,4 @@
+// auth-context.js
 import React, { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
@@ -9,7 +10,11 @@ const AuthProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
   }, [user]);
 
   const login = (userData) => {
@@ -37,6 +42,10 @@ const AuthProvider = ({ children }) => {
     }));
   };
 
+  const updateUserInContext = (updatedUser) => {
+    setUser(updatedUser);
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -45,6 +54,7 @@ const AuthProvider = ({ children }) => {
         logout,
         followUserInContext,
         unfollowUserInContext,
+        updateUserInContext,
       }}
     >
       {children}

@@ -16,6 +16,7 @@ import {
   addTuit as addTuitApi,
   deleteTuit as deleteTuitApi,
 } from "./api";
+import "./App.css";
 
 function App() {
   const [tuits, setTuits] = useState([]);
@@ -58,33 +59,35 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="App">
+        <div className="flex flex-col md:flex-row h-full">
           <Navigation />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomeScreen
-                  addTuit={addTuit}
-                  tuits={tuits}
-                  deleteTuit={deleteTuit}
-                />
-              }
-            />
-            <Route
-              path="/profile/:userId"
-              element={
-                <PrivateRoute>
-                  <ProfileScreen />
-                </PrivateRoute>
-              }
-            />
-            <Route path="/user/:userId" element={<UserProfileScreen />} />
-            <Route path="/search" element={<SearchScreen />} />
-            <Route path="/square" element={<SquareScreen />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
+          <div className="flex-1 p-4 md:ml-[20%]">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <HomeScreen
+                    addTuit={addTuit}
+                    tuits={tuits}
+                    deleteTuit={deleteTuit}
+                  />
+                }
+              />
+              <Route
+                path="/profile/:userId"
+                element={
+                  <PrivateRoute>
+                    <ProfileScreen />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="/user/:userId" element={<UserProfileScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
+              <Route path="/square" element={<SquareScreen />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </div>
         </div>
       </Router>
     </AuthProvider>

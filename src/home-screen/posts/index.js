@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../auth-context";
+import "./styles.css";
 
 const PostInput = ({ addTuit }) => {
   const [post, setPost] = useState("");
@@ -19,13 +20,18 @@ const PostInput = ({ addTuit }) => {
   };
 
   return (
-    <div>
-      <textarea
-        value={post}
-        onChange={handleInputChange}
-        placeholder="Write your post..."
-      ></textarea>
-      <button onClick={handlePublish}>Publish</button>
+    <div className="flex flex-col items-center bg-purple-200 p-4 rounded-lg shadow-md">
+      <div className="flex w-full space-x-4">
+        <textarea
+          value={post}
+          onChange={handleInputChange}
+          className="flex-1 p-2 border-2 border-purple-300 rounded-lg focus:outline-none focus:border-purple-500"
+          placeholder="Write your post..."
+        ></textarea>
+        <button className="cute-button" onClick={handlePublish}>
+          Publish
+        </button>
+      </div>
     </div>
   );
 };

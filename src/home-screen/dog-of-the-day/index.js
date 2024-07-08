@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 const DogOfTheDay = () => {
   const [dogPhoto, setDogPhoto] = useState("");
 
@@ -18,9 +17,16 @@ const DogOfTheDay = () => {
   };
 
   return (
-    <div>
-      <h1>Dog of the Day</h1>
-      {dogPhoto && <img src={dogPhoto} alt="Dog of the Day" />}
+    <div className="hidden md:block">
+      <div className="dog-of-day-title mb-4">Dog of the Day!</div>
+      <div className="frame mx-auto">
+        {dogPhoto && (
+          <div className="image-container">
+            <img src={dogPhoto} alt="Dog of the Day" className="main-image" />
+            <img src={dogPhoto} alt="Dog of the Day" className="blur-image" />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

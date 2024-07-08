@@ -42,38 +42,50 @@ const SetUser = ({ user, updateUser }) => {
   };
 
   return (
-    <div>
-      <h2>Set User Information</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          User Name:
-          <input type="text" value={userName} onChange={handleUserNameChange} />
-        </label>
-        <br />
-        <label>
-          Password:
+    <div className="p-4 rounded-lg bg-gradient-to-r from-purple-400 to-blue-500 shadow-md">
+      <h2 className="text-2xl font-bold mb-4 text-white">
+        Set User Information
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block mb-2 text-white">User Name:</label>
+          <input
+            type="text"
+            value={userName}
+            onChange={handleUserNameChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block mb-2 text-white">Password:</label>
           <input
             type="password"
             value={password}
             onChange={handlePasswordChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
           />
-        </label>
-        <br />
-        <label>
-          First Name:
+        </div>
+        <div>
+          <label className="block mb-2 text-white">First Name:</label>
           <input
             type="text"
             value={firstName}
             onChange={handleFirstNameChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
           />
-        </label>
-        <br />
-        <label>
-          Last Name:
-          <input type="text" value={lastName} onChange={handleLastNameChange} />
-        </label>
-        <br />
-        <button type="submit">Save</button>
+        </div>
+        <div>
+          <label className="block mb-2 text-white">Last Name:</label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={handleLastNameChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <button type="submit" className="cute-button">
+          Save
+        </button>
       </form>
     </div>
   );

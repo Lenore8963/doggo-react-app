@@ -1,0 +1,43 @@
+.cute-button {
+  background: linear-gradient(45deg, #00b4d8, #0096c7);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cute-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cute-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tuit-item {
+  border: 3px solid #00b4d8;
+  box-shadow: 1px -1px 0 #0096c7, -1px 1px 0 #0096c7, 1px 1px 0 #0077b6,
+    -1px -1px 0 #0077b6, 1px 1px 2px #0096c7, -1px -1px 2px #0096c7,
+    1px 1px 2px #0077b6, -1px -1px 2px #0077b6;
+  animation: simpleNeon 1s infinite alternate;
+}
+
+@keyframes simpleNeon {
+  from {
+    box-shadow: 1px -1px 0 #0096c7, -1px 1px 0 #0096c7, 1px 1px 0 #0077b6,
+      -1px -1px 0 #0077b6, 1px 1px 2px #0096c7, -1px -1px 2px #0096c7,
+      1px 1px 2px #0077b6, -1px -1px 2px #0077b6;
+  }
+  to {
+    box-shadow: 2px -2px 0 #0096c7, -2px 2px 0 #0096c7, 2px 2px 0 #0077b6,
+      -2px -2px 0 #0077b6, 2px 2px 2px #0096c7, -2px -2px 2px #0096c7,
+      2px 2px 2px #0077b6, -2px -2px 2px #0077b6;
+  }
+}

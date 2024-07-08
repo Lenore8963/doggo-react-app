@@ -1,0 +1,164 @@
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #9bbff4;
+  padding: 20px; /* Space around the text */
+  border-radius: 15px; /* Rounded corners */
+  max-width: 100%; /* Adjust as needed */
+  margin: 0 auto; /* Center the container */
+  background-color: #9bbff4;
+  border: 5px solid #9370db; /* Medium purple for the border */
+  box-shadow: 1px -1px 0 #8a2be2, /* BlueViolet */ -1px 1px 0 #8a2be2,
+    1px 1px 0 #4b0082, /* Indigo */ -1px -1px 0 #4b0082, 1px 1px 2px #8a2be2,
+    -1px -1px 2px #8a2be2, 1px 1px 2px #4b0082, -1px -1px 2px #4b0082;
+  animation: purpleNeon 1s infinite alternate;
+}
+
+@keyframes purpleNeon {
+  from {
+    box-shadow: 1px -1px 0 #8a2be2, -1px 1px 0 #8a2be2, 1px 1px 0 #4b0082,
+      -1px -1px 0 #4b0082, 1px 1px 2px #8a2be2, -1px -1px 2px #8a2be2,
+      1px 1px 2px #4b0082, -1px -1px 2px #4b0082;
+  }
+  to {
+    box-shadow: 2px -2px 0 #8a2be2, -2px 2px 0 #8a2be2, 2px 2px 0 #4b0082,
+      -2px -2px 0 #4b0082, 2px 2px 2px #8a2be2, -2px -2px 2px #8a2be2,
+      2px 2px 2px #4b0082, -2px -2px 2px #4b0082;
+  }
+}
+
+.center-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Pacifico", cursive;
+  font-size: 3em;
+  text-align: center;
+  color: #f94892;
+  text-shadow: 1px -1px 0 #00ffff, /* Top-left cyan shadow */ -1px 1px 0 #00ffff,
+    /* Bottom-right cyan shadow */ 1px 1px 0 #ff1493,
+    /* Bottom-left deep pink shadow */ -1px -1px 0 #ff1493; /* Top-right deep pink shadow */
+  animation: neonOutline 1s infinite alternate;
+}
+
+@keyframes neonOutline {
+  from {
+    text-shadow: 1px -1px 0 #00ffff, -1px 1px 0 #00ffff, 1px 1px 0 #ff1493,
+      -1px -1px 0 #ff1493;
+  }
+  to {
+    text-shadow: 2px -2px 0 #00ffff, -2px 2px 0 #00ffff, 2px 2px 0 #ff1493,
+      -2px -2px 0 #ff1493;
+  }
+}
+
+.center-sub-heading p {
+  font-family: "Quicksand", sans-serif; /* A complementary, readable font */
+  font-size: 1.5em; /* Slightly larger for better readability */
+  text-align: center;
+  color: #545454; /* A softer pink that complements the main heading */
+  text-shadow: 1px -1px 2px #ffccf9,
+    /* Light pink shadow for a subtle glow */ -1px 1px 2px #ffccf9,
+    1px 1px 2px #ffccf9, -1px -1px 2px #ffccf9;
+  margin-top: 20px; /* Space between the main heading and sub-heading */
+}
+
+/* Dog of the Day Title */
+.dog-of-day-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 2em;
+  font-weight: 100;
+  font-weight: normal; /* Set to normal weight */
+  color: #f18d00; /* Dark color for the text */
+  text-shadow: 1px -1px 0 #ff0000, /* Red */ -1px 1px 0 #ff7f00,
+    /* Orange */ 1px 1px 0 #ffff00, /* Yellow */ -1px -1px 0 #7fff00,
+    /* Chartreuse */ 1px 1px 2px #00ff00, /* Green */ -1px -1px 2px #00ff7f,
+    /* Spring Green */ 1px 1px 2px #00ffff, /* Cyan */ -1px -1px 2px #007fff,
+    /* Azure */ 1px 1px 2px #0000ff, /* Blue */ -1px -1px 2px #7f00ff; /* Violet */
+  animation: rainbowNeon 1s infinite alternate;
+  text-align: center;
+}
+
+/* Frame styling */
+.frame {
+  width: 320px;
+  height: 320px;
+  border: 5px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  border-color: #f18d00; /* Dark color for the border */
+  box-shadow: 1px -1px 0 #ff0000, -1px 1px 0 #ff7f00, 1px 1px 0 #ffff00,
+    -1px -1px 0 #7fff00, 1px 1px 2px #00ff00, -1px -1px 2px #00ff7f,
+    1px 1px 2px #00ffff, -1px -1px 2px #007fff, 1px 1px 2px #0000ff,
+    -1px -1px 2px #7f00ff;
+  animation: rainbowNeon 1s infinite alternate;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes rainbowNeon {
+  from {
+    text-shadow: 2px -2px 0 #ff0000, -2px 2px 0 #ff7f00, 2px 2px 0 #ffff00,
+      -2px -2px 0 #7fff00, 2px 2px 2px #00ff00, -2px -2px 2px #00ff7f,
+      2px 2px 2px #00ffff, -2px -2px 2px #007fff, 2px 2px 2px #0000ff,
+      -2px -2px 2px #7f00ff;
+  }
+  to {
+    text-shadow: 1px -1px 0 #ff0000, -1px 1px 0 #ff7f00, 1px 1px 0 #ffff00,
+      -1px -1px 0 #7fff00, 1px 1px 1px #00ff00, -1px -1px 1px #00ff7f,
+      1px 1px 1px #00ffff, -1px -1px 1px #007fff, 1px 1px 1px #0000ff,
+      -1px -1px 1px #7f00ff;
+  }
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.main-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.blur-image {
+  filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1.05); /* Slightly zoomed in to avoid edges showing */
+}
+
+.greeting-text {
+  font-family: "Pacifico", cursive; /* Use a fancy font */
+  font-size: 2.5em; /* Adjust size as needed */
+  color: #ff6ec4; /* Lovely color */
+  text-align: center; /* Center the text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+  margin-top: 20px; /* Space above the text */
+  margin-bottom: 20px; /* Space below the text */
+  animation: fadeIn 1s ease-in-out; /* Simple fade-in effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
