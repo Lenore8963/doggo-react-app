@@ -31,14 +31,16 @@ Welcome to Doggo Mingo, the ultimate platform for dog lovers to connect, share, 
 
   
   ![image](https://github.com/Lenore8963/doggo-react-app/assets/118407314/ef8fc62a-6211-41b8-9ee3-9a3f0adb817b)
-- **Home Screen and Posting Tuits**: Create posts with text and images. View posts from users you follow.
+- **Home Screen and Posting Posts**: Create posts with text and images. You can also delete your posts. View posts from users you follow.
+
+ ![image](https://github.com/Lenore8963/doggo-react-app/assets/118407314/3e4a1cef-d9a7-4ca3-b5cb-0eceec70dc4f)
+
+- **Viewing and Interacting with Posts**: See all posts of the community on Square page.
+
+ ![image](https://github.com/Lenore8963/doggo-react-app/assets/118407314/4e93fad3-90be-4a90-90b0-0f04bfe468d4)
 
 
-- **Viewing and Interacting with Tuits**: See all posts on your home screen, delete your own posts.
-
-  ![image](https://github.com/Lenore8963/doggo-react-app/assets/118407314/3e4a1cef-d9a7-4ca3-b5cb-0eceec70dc4f)
-
-- **Following and Unfollowing Users**: Connect with other dog lovers by following their profiles.
+- **Following and Unfollowing Users**: Connect with other dog lovers and display their posts on your home screen by following their profiles. You can also unfollow them.
 ![image](https://github.com/Lenore8963/doggo-react-app/assets/118407314/cacb0605-1d69-4f27-8323-1ff76c2efdb5)
 
   ![image](https://github.com/Lenore8963/doggo-react-app/assets/118407314/5dd7cf7e-5def-4eb9-b74e-574151335f51)
