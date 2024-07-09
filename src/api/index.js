@@ -68,3 +68,21 @@ export const unfollowUser = (userId, unfollowUserId) => {
       throw error;
     });
 };
+
+export const addDog = (userId, name, imageFile) => {
+  const formData = new FormData();
+  formData.append("userId", userId);
+  formData.append("name", name);
+  formData.append("image", imageFile);
+
+  return axios
+    .post("/api/users/add-dog", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    .catch((error) => {
+      console.error("Error in addDog API:", error.response?.data);
+      throw error;
+    });
+};

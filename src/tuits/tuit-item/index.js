@@ -25,10 +25,12 @@ const TuitItem = ({ tuit, time, user, imageUrl, onDelete }) => {
         >
           {user.firstName} {user.lastName}
         </span>
-        <FaTrash
-          onClick={onDelete}
-          className="text-gray-500 cursor-pointer hover:text-red-600 transition duration-300"
-        />
+        {currentUser && currentUser._id === user._id && (
+          <FaTrash
+            onClick={onDelete}
+            className="text-gray-500 cursor-pointer hover:text-red-600 transition duration-300"
+          />
+        )}
       </div>
       <p className="mt-2 text-gray-800">{tuit}</p>
       {imageUrl && (

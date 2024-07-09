@@ -12,6 +12,7 @@ const UserProfileScreen = () => {
     username: "",
     firstName: "",
     lastName: "",
+    dogs: [], // Initialize dogs
   });
 
   useEffect(() => {
@@ -72,6 +73,21 @@ const UserProfileScreen = () => {
               {isFollowing ? "Unfollow" : "Follow"}
             </button>
           )}
+          <div>
+            <h3 className="text-xl font-bold mt-4 text-gray-800">Dogs</h3>
+            <div className="flex flex-wrap">
+              {profileUser.dogs.map((dog, index) => (
+                <div key={index} className="mb-4 w-1/2 md:w-1/4 p-2">
+                  <div className="font-semibold text-gray-700">{dog.name}</div>
+                  <img
+                    src={dog.imageUrl}
+                    alt={dog.name}
+                    className="mt-2 rounded-full w-24 h-24 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="w-full md:w-1/4 order-1 md:order-2 p-4 shadow-lg rounded-lg mt-4 md:mt-0"></div>
       </div>
