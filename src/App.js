@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomeScreen from "./home-screen";
@@ -34,12 +33,9 @@ function App() {
     }
   };
 
-  const addTuit = async (tuitText) => {
+  const addTuit = async (tuitText, userId, imageFile) => {
     try {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const requestBody = { tuit: tuitText, userId: user._id };
-      console.log("Adding tuit:", requestBody);
-      const response = await addTuitApi(tuitText, user._id);
+      const response = await addTuitApi(tuitText, userId, imageFile);
       setTuits([...tuits, response.data]);
     } catch (error) {
       console.error("Error adding tuit:", error);

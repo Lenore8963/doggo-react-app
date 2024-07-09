@@ -13,7 +13,8 @@ const TuitList = ({ tuits, handleDelete }) => {
           key={tuit._id}
           tuit={tuit.tuit}
           time={tuit.time}
-          user={tuit.userId} // Pass the user information to TuitItem
+          user={tuit.userId}
+          imageUrl={tuit.imageUrl} // Pass the imageUrl to TuitItem
           onDelete={() => handleDelete(tuit._id)}
         />
       ))}

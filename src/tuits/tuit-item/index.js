@@ -4,7 +4,7 @@ import { AuthContext } from "../../auth-context";
 import { FaTrash } from "react-icons/fa";
 import "./styles.css";
 
-const TuitItem = ({ tuit, time, user, onDelete }) => {
+const TuitItem = ({ tuit, time, user, imageUrl, onDelete }) => {
   const { user: currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -31,6 +31,13 @@ const TuitItem = ({ tuit, time, user, onDelete }) => {
         />
       </div>
       <p className="mt-2 text-gray-800">{tuit}</p>
+      {imageUrl && (
+        <img
+          src={`http://localhost:5000${imageUrl}`}
+          alt="Tuit"
+          className="mt-2 rounded-lg"
+        />
+      )}
       <p className="text-gray-500 text-right text-sm mt-2">
         {new Date(time).toLocaleString()}
       </p>

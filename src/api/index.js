@@ -23,13 +23,25 @@ export const getTuits = () => {
   return axios.get("/api/tuits");
 };
 
-export const addTuit = (tuitText, userId) => {
-  const requestBody = { tuit: tuitText, userId: userId };
-  console.log("Sending add tuit request:", requestBody);
-  return axios.post("/api/tuits", requestBody).catch((error) => {
-    console.error("Error in addTuit API:", error.response?.data);
-    throw error;
-  });
+export const addTuit = (tuitText, userId, imageFile) => {
+  const formData = new FormData();
+  formData.append("tuit", tuitText);
+  formData.append("userId", userId);
+  if (imageFile) {
+    formData.append("image", imageFile);
+  }
+
+  console.log("Sending add tuit request:", formData);
+  return axios
+    .post("/api/tuits", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    .catch((error) => {
+      console.error("Error in addTuit API:", error.response?.data);
+      throw error;
+    });
 };
 
 export const deleteTuit = (tuitId) => {
